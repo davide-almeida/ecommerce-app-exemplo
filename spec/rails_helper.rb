@@ -31,6 +31,12 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  # custom configs - start
+  config.before(type: :system) do # Not use browser to render tests
+    driven_by(:rack_test)
+  end
+  # custom configs - end
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
