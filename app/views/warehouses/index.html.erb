@@ -3,9 +3,19 @@
 <% if @warehouses.empty? %>
   <p>Nenhum galpão encontrado</p>
 <% else %>
+  <%# @warehouses.each do |w| %>
+    <%#= link_to w["name"], warehouse_path(w["id"]) %>
+    <%#= w["code"] %>
+    <%#= w["city"] %>
+  <%# end %>
   <% @warehouses.each do |w| %>
-    <%= link_to w["name"], warehouse_path(w["id"]) %>
-    <%= w["code"] %>
-    <%= w["city"] %>
+    <%= w.id %>
+    <%= link_to w.name, warehouse_path(w.id) %>
+    <%= w.code %>
+    <%= w.cep %>
+    <%= w.address %>
+    <%= w.city %>
+    <%= w.description %>
+    <%= w.area %>
   <% end %>
 <% end %>
